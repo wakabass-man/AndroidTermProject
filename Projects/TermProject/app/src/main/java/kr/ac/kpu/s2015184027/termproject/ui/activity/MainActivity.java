@@ -1,8 +1,10 @@
-package kr.ac.kpu.s2015184027.termproject;
+package kr.ac.kpu.s2015184027.termproject.ui.activity;
+
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import kr.ac.kpu.s2015184027.termproject.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,5 +12,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        TitleView titleView = new TitleView(this);
+//        setContentView(titleView);
     }
 }
