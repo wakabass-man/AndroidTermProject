@@ -1,6 +1,7 @@
 package kr.ac.kpu.s2015184027.termproject.ui.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 

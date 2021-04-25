@@ -18,8 +18,9 @@ public class TitleView extends View {
     protected void onDraw(Canvas canvas) {
         Paint paint = new Paint();
         paint.setColor(0xff0044ff);
-        Rect rect = new Rect(10, 20, 300, 400);
+        Rect rect = new Rect(0, 0, canvas.getWidth(), canvas.getHeight());
         Log.d(TAG, "drawing " + rect);
         canvas.drawRect(rect, paint);
     }
+
 }
