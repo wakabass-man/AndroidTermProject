@@ -1,4 +1,4 @@
-package kr.ac.kpu.s2015184027.samplegame.game;
+package kr.ac.kpu.s2015184027.termproject.game;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
