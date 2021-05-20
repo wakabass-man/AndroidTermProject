@@ -1,4 +1,4 @@
-package kr.ac.kpu.s2015184027.termproject.framework;
+package kr.ac.kpu.s2015184027.termproject.framework.bitmap;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -8,7 +8,7 @@ import android.graphics.RectF;
 
 import java.util.HashMap;
 
-import kr.ac.kpu.s2015184027.termproject.ui.view.GameView;
+import kr.ac.kpu.s2015184027.termproject.framework.view.GameView;
 
 public class GameBitmap {
     private static HashMap<Integer, Bitmap> bitmaps = new HashMap<Integer, Bitmap>();

@@ -1,4 +1,4 @@
-package kr.ac.kpu.s2015184027.termproject.framework;
+package kr.ac.kpu.s2015184027.termproject.framework.utils;
 
 import android.content.Context;
 import android.media.AudioAttributes;

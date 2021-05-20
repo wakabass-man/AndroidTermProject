@@ -1,4 +1,4 @@
-package kr.ac.kpu.s2015184027.termproject.ui.view;
+package kr.ac.kpu.s2015184027.termproject.framework.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -10,13 +10,14 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import kr.ac.kpu.s2015184027.termproject.framework.Sound;
-import kr.ac.kpu.s2015184027.termproject.game.MainGame;
+import kr.ac.kpu.s2015184027.termproject.framework.game.BaseGame;
+import kr.ac.kpu.s2015184027.termproject.framework.utils.Sound;
 
 public class GameView extends View {
     private static final String TAG = GameView.class.getSimpleName();
 
-    public static final float MULTIPLIER = 2;
+    public static float MULTIPLIER = 2;
+    private boolean running;
     //    private Ball b1, b2;
 
     private long lastFrame;
@@ -26,6 +27,7 @@ public class GameView extends View {
         super(context, attrs);
         GameView.view = this;
         Sound.init(context);
+        running = true;
 //        startUpdating();
     }
 
@@ -33,7 +35,7 @@ public class GameView extends View {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         //super.onSizeChanged(w, h, oldw, oldh);
         Log.d(TAG, "onSize: " + w + "," + h);
-        MainGame game = MainGame.get();
+        BaseGame game = BaseGame.get();
         boolean justInitialized = game.initResources();
         if (justInitialized) {
             requestCallback();
@@ -41,20 +43,24 @@ public class GameView extends View {
     }
 
     private void update() {
-        MainGame game = MainGame.get();
+        BaseGame game = BaseGame.get();
         game.update();
 
         invalidate();
     }
 
     private void requestCallback() {
+        if (!running) {
+            Log.d(TAG, "Not running. Not calling Choreographer.postFrameCallback()");
+            return;
+        }
         Choreographer.getInstance().postFrameCallback(new Choreographer.FrameCallback() {
             @Override
             public void doFrame(long time) {
                 if (lastFrame == 0) {
                     lastFrame = time;
                 }
-                MainGame game = MainGame.get();
+                BaseGame game = BaseGame.get();
                 game.frameTime = (float) (time - lastFrame) / 1_000_000_000;
                 update();
                 lastFrame = time;
@@ -65,13 +71,25 @@ public class GameView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        MainGame game = MainGame.get();
+        BaseGame game = BaseGame.get();
         game.draw(canvas);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        MainGame game = MainGame.get();
+        BaseGame game = BaseGame.get();
         return game.onTouchEvent(event);
+    }
+
+    public void pauseGame() {
+        running = false;
+    }
+
+    public void resumeGame() {
+        if (!running) {
+            running = true;
+            lastFrame = 0;
+            requestCallback();
+        }
     }
 }

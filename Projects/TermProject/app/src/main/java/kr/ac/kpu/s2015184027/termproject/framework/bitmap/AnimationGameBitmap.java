@@ -1,23 +1,19 @@
-package kr.ac.kpu.s2015184027.termproject.framework;
+package kr.ac.kpu.s2015184027.termproject.framework.bitmap;
 
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.graphics.RectF;
 
-import kr.ac.kpu.s2015184027.termproject.ui.view.GameView;
+import kr.ac.kpu.s2015184027.termproject.framework.view.GameView;
 
 public class AnimationGameBitmap extends GameBitmap {
     //private Bitmap bitmap;
     private final int imageWidth;
     private final int imageHeight;
-    private final int frameWidth;
-    private final long createdOn;
-    private int frameIndex;
-    private final float framesPerSecond;
-    private final int frameCount;
+    protected int frameWidth;
+    protected final long createdOn;
+    protected int frameIndex;
+    protected final float framesPerSecond;
+    protected int frameCount;
 
     protected Rect srcRect = new Rect();
 
