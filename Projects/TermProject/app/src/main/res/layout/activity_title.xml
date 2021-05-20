@@ -4,17 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Title">
+    tools:context=".Title"
+    android:orientation="vertical"
+    >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="244dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Term Project"
+        android:textSize="56sp"
+
+        />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/startButton"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Title"
+        android:text="Game Start!"
+        android:width="200dp"
+        android:layout_gravity="center_horizontal"
         />
 
 </LinearLayout>
