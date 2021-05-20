@@ -48,15 +48,15 @@ public class MainGame extends BaseGame {
         score.setScore(0);
         add(Layer.ui, score);
 
-        add(Layer.bg, new HorizontalScrollBackground(R.mipmap.cookie_run_bg_1, -10));
+        add(Layer.bg, new HorizontalScrollBackground(R.mipmap.background, -10));
         add(Layer.bg, new HorizontalScrollBackground(R.mipmap.cookie_run_bg_2, -20));
-        add(Layer.bg, new HorizontalScrollBackground(R.mipmap.cookie_run_bg_3, -30));
+        add(Layer.bg, new HorizontalScrollBackground(R.mipmap.cookie_run_bg_3, -40));
 //
         add(Layer.controller, new StageMap());
 
         float tx = 0, ty = h - Platform.Type.T_2x2.height();
         while (tx < w) {
-            Platform platform = new Platform(Platform.Type.RANDOM, tx, ty);
+            Platform platform = new Platform(Platform.Type.T_10x2, tx, ty);
             add(Layer.platform, platform);
             tx += platform.getDstWidth();
 //        VerticalScrollBackground clouds = new VerticalScrollBackground(R.mipmap.clouds, 20);
